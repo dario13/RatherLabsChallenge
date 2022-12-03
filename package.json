@@ -17,7 +17,6 @@
   "devDependencies": {
     "@ethersproject/abi": "^5.4.7",
     "@ethersproject/providers": "^5.4.7",
-    "@lufycz/sushi-data": "^2.0.0-canary.30",
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.0",
     "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
@@ -30,6 +29,7 @@
     "@types/chai": "^4.2.0",
     "@types/mocha": "^9.1.0",
     "@types/node": ">=12.0.0",
+    "axios": "^1.2.0",
     "chai": "^4.2.0",
     "dotenv": "^16.0.3",
     "ethers": "^5.4.7",
