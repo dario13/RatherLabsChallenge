@@ -7,6 +7,7 @@ describe('PoolIdFinder contract test', () => {
   let poolIdFinder: PoolIdFinder
 
   beforeEach(async () => {
+    await deployments.fixture(['PoolIdFinder'])
     const accounts: SignerWithAddress[] = await ethers.getSigners()
     // 1 = userA
     const userA: SignerWithAddress = accounts[1]
