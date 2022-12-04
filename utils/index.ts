@@ -1,2 +1,2 @@
-export * from './checkAddresses'
+export * from './addressTools'
 export * from './makeQueryGraphQl'
