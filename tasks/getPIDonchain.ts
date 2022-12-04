@@ -7,7 +7,7 @@ import {
   PoolIdFinder__factory,
 } from '../typechain-types'
 import { NetWorkInfo } from './network-info'
-import { checkAddresses } from '../utils/checkAddresses'
+import { validateAddresses } from '../utils/addressTools'
 
 task(
   'getPIDonchain',
@@ -18,7 +18,7 @@ task(
   .addParam('token1', 'The address of token1')
   .setAction(async (taskArgs, hre) => {
     const { token0, token1 } = taskArgs
-    checkAddresses([token0, token1])
+    validateAddresses([token0, token1])
 
     const { sushiV2FactoryAddress }: NetWorkInfo = await hre.run('networkInfo')
 
