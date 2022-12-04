@@ -2,6 +2,7 @@ import { HardhatUserConfig } from 'hardhat/config'
 import '@typechain/hardhat'
 import 'hardhat-deploy'
 import '@nomiclabs/hardhat-ethers'
+import '@nomicfoundation/hardhat-chai-matchers'
 import './tasks'
 import { forkingBlockNumber, mainNetRpcUrl } from './env'
 
