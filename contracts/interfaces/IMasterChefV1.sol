@@ -11,6 +11,13 @@ interface IMasterChefV1 {
         uint256 accSushiPerShare; // Accumulated SUSHIs per share, times 1e12. See below.
     }
 
+    struct UserInfo {
+        uint256 amount;
+        int256 rewardDebt;
+    }
+
+    function userInfo(uint256 _pid, address _user) external view returns (UserInfo memory);
+
     function deposit(uint256 _pid, uint256 _amount) external;
 
     function withdraw(uint256 _pid, uint256 _amount) external;
