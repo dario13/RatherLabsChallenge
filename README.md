@@ -55,13 +55,13 @@ The project is divided into 5 main folders:
 
 ## How it works
 
-![Image](https://github.com/dario13/RatherLabsChallenge/Diagram.png?raw=true)
+![Alt text](/Diagram.png?raw=true "Diagram")
 
-The logic of the main SmartWallet function, called joinLiquidityMiningProgram(...) is:
-1- The user allows the SmartWallet to spend his tokens.
-2- The SmartWallet transfer the tokens from the user and allows the Router to spend his tokens. After that, call the Router to make a deposit in the Liquidty Pool.
-3- The Router performs a series of validations, and if everything is correct, add liquidity in the Liquidity Pool and transfers the minted SLP tokens to SmartWallet.
-4- The SmartWallet allows the MasterChef to spend his SLP tokens. After that, call the MasterChef to make a deposit in the MasterChef.
+The logic of the main SmartWallet function, called joinLiquidityMiningProgram(...) is:\
+1- The user allows the SmartWallet to spend his tokens.\
+2- The SmartWallet transfer the tokens from the user and allows the Router to spend his tokens. After that, call the Router to make a deposit in the Liquidty Pool.\
+3- The Router performs a series of validations, and if everything is correct, add liquidity in the Liquidity Pool and transfers the minted SLP tokens to SmartWallet.\
+4- The SmartWallet allows the MasterChef to spend his SLP tokens. After that, call the MasterChef to make a deposit in the MasterChef.\
 
 ## Installation
 
