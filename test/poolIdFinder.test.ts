@@ -17,8 +17,8 @@ describe('PoolIdFinder contract test', () => {
   })
 
   it(
-    'Given the address of tokenA and tokenB when the getSLPTokenAddress function' +
-      'is called then the address of the SLP token is returned',
+    'Given the address of tokenA and tokenB when the getSLPTokenAddress function \
+     is called then the address of the SLP token is returned',
     async () => {
       // Given
       const tokenA = '0x0391d2021f89dc339f60fff84546ea23e337750f'
@@ -33,8 +33,8 @@ describe('PoolIdFinder contract test', () => {
   )
 
   it(
-    'Given the address of SLP token when the getPoolIdAndMasterChefVersion function' +
-      +'is called then the pool ID and master chef version are returned',
+    'Given the address of SLP token when the getPoolIdAndMasterChefVersion function \
+     is called then the pool ID and master chef version are returned',
     async () => {
       // Given
       const slpTokenAddress = '0x269db91fc3c7fcc275c2e6f22e5552504512811c'
