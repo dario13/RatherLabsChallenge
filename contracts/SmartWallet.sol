@@ -7,7 +7,7 @@ import './interfaces/ISushiSwapRouter.sol';
 import './interfaces/IMasterChefV1.sol';
 import './interfaces/IMasterChefV2.sol';
 import './interfaces/IUniswapV2Factory.sol';
-import {IncorrectAllowanceProvided, InsufficientSlpBalance} from './Errors.sol';
+import {IncorrectAllowanceProvided, InsufficientSlpBalance, InvalidTokenAmount} from './Errors.sol';
 
 contract SmartWallet is Ownable {
     using SafeERC20 for IERC20;
@@ -47,11 +47,13 @@ contract SmartWallet is Ownable {
         if (provided < _amount) revert IncorrectAllowanceProvided(provided, _amount);
     }
 
+    function _updateTokenBalance(address _user, address _token, uint256 _amount) private {
+        tokensBalance[_user][_token] += _amount;
+    }
+
     // Deposits a token into this contract
     function _depositToken(address _token, uint256 _amount) private {
         IERC20(_token).safeTransferFrom(msg.sender, address(this), _amount);
-        // Update user token balance
-        tokensBalance[msg.sender][_token] += _amount;
     }
 
     // Add liquidity to SushiSwap
@@ -184,9 +186,16 @@ contract SmartWallet is Ownable {
         address _slpTokenAddress,
         bool _isMasterChefV2
     ) public {
-        // Check if the allowance is correct
+        // Check that amountA and amountB are greater than 0
+        if (_amountA == 0) revert InvalidTokenAmount();
+        if (_amountB == 0) revert InvalidTokenAmount();
+        // Check if the user has approved this contract to spend the tokens
         _checkAllowance(_tokenA, _amountA);
         _checkAllowance(_tokenB, _amountB);
+
+        // Update user's token balance
+        _updateTokenBalance(msg.sender, _tokenA, _amountA);
+        _updateTokenBalance(msg.sender, _tokenB, _amountB);
 
         // Deposit the tokens into this contract
         _depositToken(_tokenA, _amountA);
