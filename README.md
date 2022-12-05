@@ -175,6 +175,8 @@ About the contract:
 - The SLP Token address is required to join the liquidity mining program, because it's understood that the user is only interested in joining the program for pairs who are already in the pool and eligible to be farmed.
 - Some validations are not performed in the SmartWallet, such as if the SLP doesn't exist in the MasterChef, because it wouldn't be listed in a potential frontend.
 - The SmartWallet is not a proxy contract, because it's not required for this challenge, but could easily be adapted.
+- With more time, possibly gas used could be improved
+- Only Slither was used for the analysis, but other tools for vulnerability analysis should be used.
 
 About the tests:
 
