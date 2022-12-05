@@ -14,7 +14,8 @@
     "retrieveTasks": "cp -r tasksCopy/* tasks && rm -rf tasksCopy",
     "postinstall": "yarn copyTasks && yarn type && yarn compile && yarn retrieveTasks",
     "lint": "eslint --fix --ext .ts",
-    "format-ts": "prettier --write --no-error-on-unmatched-pattern \"**/*.ts{,x}\""
+    "format-ts": "prettier --write --no-error-on-unmatched-pattern \"**/*.ts{,x}\"",
+    "toolbox": "docker run -it --rm -v $PWD:/src trailofbits/eth-security-toolbox"
   },
   "devDependencies": {
     "@ethersproject/abi": "^5.4.7",
