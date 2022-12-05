@@ -79,5 +79,5 @@ task(
       console.log('Pool ID not found')
     }
 
-    console.log('Pool ID: ', pid)
+    console.log('Pool Information: ', pid)
   })
