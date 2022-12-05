@@ -68,7 +68,7 @@ The logic of the main SmartWallet function, called joinLiquidityMiningProgram(..
 First clone the repository:
 
 ```bash
-https://github.com/dario13/RatherLabsChallenge.git
+git clone https://github.com/dario13/RatherLabsChallenge.git
 ```
 
 To intall the project, I recommend using Yarn, but you can use NPM if you prefer (I didn't prove it).
