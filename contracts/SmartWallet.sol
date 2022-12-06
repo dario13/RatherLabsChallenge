@@ -56,6 +56,13 @@ contract SmartWallet is Ownable {
         IERC20(_token).safeTransferFrom(msg.sender, address(this), _amount);
     }
 
+    // Increments a number in unsafe way, to spend less gas
+    function _unsafeInc(uint256 _amount) private pure returns (uint256) {
+        unchecked {
+            return _amount + 1;
+        }
+    }
+
     // Add liquidity to SushiSwap
     function _addLiquidity(
         address _tokenA,
@@ -86,7 +93,7 @@ contract SmartWallet is Ownable {
         uint32 _pid
     ) public view returns (uint256 balance) {
         Farm[] memory userFarms = farms[_user];
-        for (uint256 i = 0; i < userFarms.length; i++) {
+        for (uint256 i = 0; i < userFarms.length; i = _unsafeInc(i)) {
             if (
                 userFarms[i].slpToken == _slpToken &&
                 userFarms[i].isMasterChefV2 == _isMasterChefV2 &&
@@ -108,7 +115,7 @@ contract SmartWallet is Ownable {
     ) private {
         Farm[] memory userFarms = farms[_user];
         bool farmExists = false;
-        for (uint256 i = 0; i < userFarms.length; i++) {
+        for (uint256 i = 0; i < userFarms.length; i = _unsafeInc(i)) {
             if (
                 userFarms[i].slpToken == _slpToken &&
                 userFarms[i].isMasterChefV2 == _isMasterChefV2 &&
@@ -134,7 +141,7 @@ contract SmartWallet is Ownable {
         uint256 _amount
     ) private view {
         Farm[] memory userFarms = farms[_user];
-        for (uint256 i = 0; i < userFarms.length; i++) {
+        for (uint256 i = 0; i < userFarms.length; i = _unsafeInc(i)) {
             if (
                 userFarms[i].slpToken == _slpToken &&
                 userFarms[i].isMasterChefV2 == _isMasterChefV2 &&
@@ -241,7 +248,7 @@ contract SmartWallet is Ownable {
 
     // Withdraw the user's tokens, which were left over when liquidity was added to a pool
     function withdrawTokens(address[] memory _tokenAddresses) external {
-        for (uint256 i = 0; i < _tokenAddresses.length; i++) {
+        for (uint256 i = 0; i < _tokenAddresses.length; i = _unsafeInc(i)) {
             address tokenAddress = _tokenAddresses[i];
             uint256 amount = tokensBalance[msg.sender][tokenAddress];
             tokensBalance[msg.sender][tokenAddress] = 0;
