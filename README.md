@@ -1,5 +1,3 @@
-_Important note: the .env file is available in the repository, this is only to facilitate testing the project, under no circumstances could it be available in a real project._
-
 ## Table of content
 
 - [Challenge](#challenge)
@@ -20,25 +18,25 @@ _Important note: the .env file is available in the repository, this is only to f
 
 ## Challenge
 
-SushiSwap is a decentralized exchange (DEX) protocol based off Uniswap.\
+SushiSwap is a decentralized exchange (DEX) protocol based off Uniswap.
 To compete with its predecessor, SushiSwap launched a liquidity mining
 program that rewards liquidity providers that decide to deposit their tokens
-on their DEX.\
+on their DEX.
 In order to participate for the liquidity program, you have to follow the
-following steps\
+following steps
 
-- Approve the SushiSwap router to use your tokens.\
+- Approve the SushiSwap router to use your tokens.
 - Provide liquidity on SushiSwap by entering a pool using that is
-  incentivized by Sushi (https://app.sushi.com/pool).\
-- Approve the MasterChef smart contract to use your tokens.\
+  incentivized by Sushi (https://app.sushi.com/pool).
+- Approve the MasterChef smart contract to use your tokens.
 - Deposit the liquidity token (SLP) you received after supplying
   liquidity into a yield farm managed by MasterChef smart
-  contract (https://app.sushi.com/yield), and earn SUSHI.\
+  contract (https://app.sushi.com/yield), and earn SUSHI.
 
 The usual process for joining the liquidity mining program consist of 4 steps.
-This can be tiresome and consume a lot of time and extra gas.\
+This can be tiresome and consume a lot of time and extra gas.
 Develop a smart contract that acts as a wallet, that encapsulates all the
-actions required to join.\
+actions required to join.
 SushiSwap’s liquidity mining program into a single, handy transaction.
 This should work with MasterChefV1 and MasterChefV2 and with any pair of
 tokens.
@@ -55,7 +53,7 @@ The project is divided into 5 main folders:
 
 ## How it works
 
-![Alt text](/Diagram.png?raw=true "Diagram")
+![Alt text](/Diagram.png?raw=true 'Diagram')
 
 The logic of the main SmartWallet function, called joinLiquidityMiningProgram(...) is:\
 1- The user allows the SmartWallet to spend his tokens.\
